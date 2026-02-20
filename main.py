@@ -52,7 +52,7 @@ print(f"Train size: {len(X_train)}")
 print(f"Dev size: {len(X_dev)}")
 print(f"Test size: {len(X_test)}")
 
-# Tf-idf vectorizer
+# TF-IDF vectorizer, for preprocessing
 vectorizer = TfidfVectorizer(
     lowercase=True,
     stop_words="english",
@@ -99,7 +99,6 @@ def tune_logistic_regression():
 
     print(f"Best C for Logistic Regression: {best_c}")
     return best_c
-
 
 def tune_svm():
     print("\nTuning Linear SVM...")
@@ -198,8 +197,6 @@ lr_acc, lr_f1 = final_evaluation(final_lr, "LogisticRegression")
 svm_acc, svm_f1 = final_evaluation(final_svm, "LinearSVM")
 
 # Summary
-print("\n============================")
-print("FINAL TEST RESULTS SUMMARY")
-print("============================")
+print("Final test results summary")
 print(f"Logistic Regression  | Accuracy={lr_acc:.4f} | Macro-F1={lr_f1:.4f}")
 print(f"Linear SVM           | Accuracy={svm_acc:.4f} | Macro-F1={svm_f1:.4f}")
